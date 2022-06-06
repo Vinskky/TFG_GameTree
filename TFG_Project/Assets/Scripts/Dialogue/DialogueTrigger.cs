@@ -20,12 +20,12 @@ public class DialogueTrigger : MonoBehaviour
 
     private void Update()
     {
-        if(playerInRange)
+        if(playerInRange && !DialogueManager.GetInstance().dialogueIsPlaying)
         {
             visualCue.SetActive(true);
             if(Input.GetKeyDown(KeyCode.E))
             {
-                Debug.Log(inkJSON.text);
+                DialogueManager.GetInstance().EnterDialogueMode(inkJSON);
             }
         }
         else
@@ -38,7 +38,7 @@ public class DialogueTrigger : MonoBehaviour
     {
         if(other.gameObject.tag == "Player")
         {
-            Debug.Log("Entering collider space");
+            //Debug.Log("Entering collider space");
             playerInRange = true;
         }
     }
@@ -47,7 +47,7 @@ public class DialogueTrigger : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            Debug.Log("Exit collider space");
+            //Debug.Log("Exit collider space");
             playerInRange = false;
         }
     }

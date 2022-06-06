@@ -13,7 +13,11 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetMouseButtonDown(0))
+        if(DialogueManager.GetInstance().dialogueIsPlaying)
+        {
+            return;
+        }
+        else if(Input.GetMouseButtonDown(0))
         {
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
