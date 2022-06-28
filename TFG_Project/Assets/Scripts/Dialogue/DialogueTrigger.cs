@@ -8,7 +8,9 @@ public class DialogueTrigger : MonoBehaviour
     [SerializeField] private GameObject visualCue;
 
     [Header("Ink JSON")]
-    [SerializeField] private TextAsset inkJSON;
+    [SerializeField] private TextAsset introText;
+    [SerializeField] private TextAsset goodText;
+    [SerializeField] private TextAsset badText;
 
     private bool playerInRange;
 
@@ -25,7 +27,7 @@ public class DialogueTrigger : MonoBehaviour
             visualCue.SetActive(true);
             if(Input.GetKeyDown(KeyCode.E))
             {
-                DialogueManager.GetInstance().EnterDialogueMode(inkJSON);
+                DialogueManager.GetInstance().EnterDialogueMode(introText);
             }
         }
         else

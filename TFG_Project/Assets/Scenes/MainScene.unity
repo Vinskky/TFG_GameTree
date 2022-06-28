@@ -1364,6 +1364,10 @@ PrefabInstance:
       propertyPath: inkJSON
       value: 
       objectReference: {fileID: 4900000, guid: 79267658d7171434aab90e024010dcef, type: 3}
+    - target: {fileID: 3310298043323314145, guid: 7f8f86955b252cb4ea937917a408b842, type: 3}
+      propertyPath: introText
+      value: 
+      objectReference: {fileID: 4900000, guid: 4f65dd16bfd55de44bdc3d86a76d39d6, type: 3}
     - target: {fileID: 3310298043323314146, guid: 7f8f86955b252cb4ea937917a408b842, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -6228,9 +6232,21 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3310298043323314145, guid: 7f8f86955b252cb4ea937917a408b842, type: 3}
+      propertyPath: badText
+      value: 
+      objectReference: {fileID: 4900000, guid: 029b1ec277081554fb5a1698a36b011e, type: 3}
+    - target: {fileID: 3310298043323314145, guid: 7f8f86955b252cb4ea937917a408b842, type: 3}
       propertyPath: inkJSON
       value: 
-      objectReference: {fileID: 4900000, guid: b98bf589f3ee9ef4497468fb82e04dce, type: 3}
+      objectReference: {fileID: 4900000, guid: 8c6aacb2613a7884baf9e1ad0458638d, type: 3}
+    - target: {fileID: 3310298043323314145, guid: 7f8f86955b252cb4ea937917a408b842, type: 3}
+      propertyPath: goodText
+      value: 
+      objectReference: {fileID: 4900000, guid: 3dda0aa6cd0b9a2479fde3c8dedc8ae0, type: 3}
+    - target: {fileID: 3310298043323314145, guid: 7f8f86955b252cb4ea937917a408b842, type: 3}
+      propertyPath: introText
+      value: 
+      objectReference: {fileID: 4900000, guid: 8c6aacb2613a7884baf9e1ad0458638d, type: 3}
     - target: {fileID: 3310298043323314174, guid: 7f8f86955b252cb4ea937917a408b842, type: 3}
       propertyPath: m_Name
       value: NPC_1
