@@ -2,9 +2,7 @@
 
 == main ==
 Hey honey! You look much better #speaker:Peter #portrait:peter #layout:right
-
 Yeah the pills you bought me were great! #speaker:Ava #portrait:ava #layout:left
-
 I'm glad you feel better... Do you know what we have for dinner? #speaker:Peter #portrait:peter #layout:right
     + [Don't know, but will be good for sure] #ap_points:10
         -> goodTake
@@ -13,9 +11,7 @@ I'm glad you feel better... Do you know what we have for dinner? #speaker:Peter 
         
 
 == badTake ==
-
 I think I can't do that, at least for now...
-
     + [Why not? ]  #ap_points:-10
         -> badTakeEnd
     + [What have you done?]  #ap_points:-10

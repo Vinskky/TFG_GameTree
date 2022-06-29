@@ -33,7 +33,7 @@ public class EndingScene : MonoBehaviour
         {
             finalText.text = "peter1";
         }
-        else if (mainScene.goodEnding == true)
+        else if (mainScene.goodEndingP == true || mainScene.goodEndingS == true)
         {
             finalText.text = "goodEnding";
         }

@@ -21,19 +21,19 @@ public class DialogueTrigger : MonoBehaviour
     private DialogueManager scriptDialogue;
 
     //intro just once
-    private bool introSophiaDone;
-    private bool introPeterDone;
-
+    private static bool introSophiaDone;
+    private static bool introPeterDone;
+    private static bool goodSophiaDone;
+    private static bool goodPeterDone;
 
     private void Awake()
     {
         playerInRange = false;
         visualCue.SetActive(false);
         scriptDialogue = dialogueManager.GetComponent<DialogueManager>();
-        introSophiaDone = false;
-        introPeterDone = false;
-
+        
     }
+ 
 
     private void Update()
     {
@@ -42,7 +42,15 @@ public class DialogueTrigger : MonoBehaviour
             visualCue.SetActive(true);
             if(Input.GetKeyDown(KeyCode.E))
             {
-                DialogueManager.GetInstance().EnterDialogueMode(HandleDialogues());
+                if(gameObject.name == "NPC_1") //Sophia
+                {
+                    DialogueManager.GetInstance().EnterDialogueMode(HandleSophiaDialogues());
+                }
+                else if(gameObject.name == "NPC_2")
+                {
+                    DialogueManager.GetInstance().EnterDialogueMode(HandlePeterDialogues());
+                }
+                
             }
         }
         else
@@ -51,15 +59,23 @@ public class DialogueTrigger : MonoBehaviour
         }
 
         //Win condition
-        if(scriptDialogue.GetPeterPoints() > 70 && scriptDialogue.GetSophiaPoints() > 70)
-        {
-            //win condition active
-            scriptDialogue.goodEnding = true;
-            //load end escene
-            SceneManager.LoadScene("EndScreen");
-        }
+        WinningScreen();
     }
 
+
+    private void WinningScreen()
+    {
+        if (scriptDialogue.GetPeterPoints() >= 70 && scriptDialogue.GetSophiaPoints() >= 70 
+            && goodPeterDone == true && goodSophiaDone == true && scriptDialogue.goodEndingP == true && scriptDialogue.goodEndingS == true)
+        {
+            //Add delay to read last part of dialogue
+            new WaitForSeconds(5);
+            //load end escene
+            SceneManager.LoadScene("EndScreen");
+
+            
+        }
+    }
     public void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == "Player")
@@ -78,14 +94,15 @@ public class DialogueTrigger : MonoBehaviour
         }
     }
 
-    private TextAsset HandleDialogues()
+    private TextAsset HandlePeterDialogues()
     {
-        if(scriptDialogue.GetPeterPoints() <= 30 && gameObject.name == "NPC_2" && introSophiaDone == true)
+        if(scriptDialogue.GetPeterPoints() <= 30 && introSophiaDone == true)
         {
             return badText;
         }
-        else if (scriptDialogue.GetPeterPoints() > 70 && gameObject.name == "NPC_2" && introSophiaDone == true)
+        else if (scriptDialogue.GetPeterPoints() >= 70 && introSophiaDone == true)
         {
+            goodPeterDone = true;
             return goodText;
         }
         else if(introPeterDone == false)
@@ -93,16 +110,21 @@ public class DialogueTrigger : MonoBehaviour
             introPeterDone = true;
             return introText;
         }
-        else if(gameObject.name == "NPC_2" && introPeterDone == true && introSophiaDone == false)
+        else 
         {
             return defaultText;
         }
-        else if (scriptDialogue.GetSophiaPoints() <= 30 && gameObject.name == "NPC_1" && introPeterDone == true)
+    }
+
+    private TextAsset HandleSophiaDialogues()
+    {
+        if (scriptDialogue.GetSophiaPoints() <= 30 && introPeterDone == true)
         {
             return badText;
         }
-        else if (scriptDialogue.GetSophiaPoints() > 70 && gameObject.name == "NPC_1" && introPeterDone == true)
+        else if (scriptDialogue.GetSophiaPoints() >= 70 && introPeterDone == true)
         {
+            goodSophiaDone = true;
             return goodText;
         }
         else if (introSophiaDone == false)
@@ -110,10 +132,9 @@ public class DialogueTrigger : MonoBehaviour
             introSophiaDone = true;
             return introText;
         }
-        else if (gameObject.name == "NPC_1" && introSophiaDone == true && introPeterDone == false)
+        else
         {
             return defaultText;
         }
-        return default;
     }
 }

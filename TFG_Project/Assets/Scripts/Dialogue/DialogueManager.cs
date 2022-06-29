@@ -36,6 +36,8 @@ public class DialogueManager : MonoBehaviour
     private const string POINTS_AVAPETER_TAG = "ap_points";
     private const string SOPHIA_LOSE = "sLose";
     private const string PETER_LOSE = "pLose";
+    private const string GOOD_ENDING_P = "goodEndP";
+    private const string GOOD_ENDING_S = "goodEndS";
 
     private int sophiaPoints;
     private int peterPoints;
@@ -50,7 +52,9 @@ public class DialogueManager : MonoBehaviour
     [HideInInspector]
     public bool peter2 = false;
     [HideInInspector]
-    public bool goodEnding = false;
+    public bool goodEndingP = false;
+    [HideInInspector]
+    public bool goodEndingS = false;
 
     private void Awake()
     {
@@ -120,9 +124,13 @@ public class DialogueManager : MonoBehaviour
 
     private void ExitDialogueMode()
     {
-        dialogueIsPlaying = false;
-        dialoguePanel.SetActive(false);
-        dialogueText.text = "";
+        if(dialoguePanel != null)
+        {
+            dialogueIsPlaying = false;
+            dialoguePanel.SetActive(false);
+            dialogueText.text = "";
+        }
+        
     }
 
     private void ContinueStory()
@@ -188,6 +196,12 @@ public class DialogueManager : MonoBehaviour
                     else { sophia2 = true; }                            //Sophia lose screen, go with dad
                     //Load ending scene
                     SceneManager.LoadScene("EndScreen");
+                    break;
+                case GOOD_ENDING_P:
+                    goodEndingP = true;
+                    break;
+                case GOOD_ENDING_S:
+                    goodEndingS = true;
                     break;
                 default:
                     Debug.LogWarning("Tag came in but ius not currently being handled: " + tag);
