@@ -1,0 +1,1 @@
+Ava go talk with your dad... #speaker:Sophia #portrait:sophia #layout:right

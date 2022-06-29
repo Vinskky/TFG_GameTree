@@ -1361,13 +1361,29 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3310298043323314145, guid: 7f8f86955b252cb4ea937917a408b842, type: 3}
+      propertyPath: badText
+      value: 
+      objectReference: {fileID: 4900000, guid: 2ebabd6678981ce478a656849c5209b5, type: 3}
+    - target: {fileID: 3310298043323314145, guid: 7f8f86955b252cb4ea937917a408b842, type: 3}
       propertyPath: inkJSON
       value: 
       objectReference: {fileID: 4900000, guid: 79267658d7171434aab90e024010dcef, type: 3}
     - target: {fileID: 3310298043323314145, guid: 7f8f86955b252cb4ea937917a408b842, type: 3}
+      propertyPath: goodText
+      value: 
+      objectReference: {fileID: 4900000, guid: c9236563efdc78a44aae766477d532cc, type: 3}
+    - target: {fileID: 3310298043323314145, guid: 7f8f86955b252cb4ea937917a408b842, type: 3}
       propertyPath: introText
       value: 
       objectReference: {fileID: 4900000, guid: 4f65dd16bfd55de44bdc3d86a76d39d6, type: 3}
+    - target: {fileID: 3310298043323314145, guid: 7f8f86955b252cb4ea937917a408b842, type: 3}
+      propertyPath: defaultText
+      value: 
+      objectReference: {fileID: 4900000, guid: 3435f7b64939f1d4cbddb8158993560b, type: 3}
+    - target: {fileID: 3310298043323314145, guid: 7f8f86955b252cb4ea937917a408b842, type: 3}
+      propertyPath: dialogueManager
+      value: 
+      objectReference: {fileID: 685298050}
     - target: {fileID: 3310298043323314146, guid: 7f8f86955b252cb4ea937917a408b842, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -6247,6 +6263,14 @@ PrefabInstance:
       propertyPath: introText
       value: 
       objectReference: {fileID: 4900000, guid: 8c6aacb2613a7884baf9e1ad0458638d, type: 3}
+    - target: {fileID: 3310298043323314145, guid: 7f8f86955b252cb4ea937917a408b842, type: 3}
+      propertyPath: defaultText
+      value: 
+      objectReference: {fileID: 4900000, guid: d54528b46cf645a49b41f0e81bd38a10, type: 3}
+    - target: {fileID: 3310298043323314145, guid: 7f8f86955b252cb4ea937917a408b842, type: 3}
+      propertyPath: dialogueManager
+      value: 
+      objectReference: {fileID: 685298050}
     - target: {fileID: 3310298043323314174, guid: 7f8f86955b252cb4ea937917a408b842, type: 3}
       propertyPath: m_Name
       value: NPC_1

@@ -33,6 +33,11 @@ public class DialogueManager : MonoBehaviour
     private const string LAYOUT_TAG = "layout";
     private const string POINTS_AVASOPHIA_TAG = "as_points";
     private const string POINTS_AVAPETER_TAG = "ap_points";
+    private const string SOPHIA_LOSE = "sLose";
+    private const string PETER_LOSE = "pLose";
+
+    private int sophiaPoints;
+    private int peterPoints;
 
 
     private void Awake()
@@ -54,6 +59,9 @@ public class DialogueManager : MonoBehaviour
     {
         dialogueIsPlaying = false;
         dialoguePanel.SetActive(false);
+        //weight system initialization
+        sophiaPoints = 50;
+        peterPoints = 50;
 
         //get the layout animator
         layoutAnimator = dialoguePanel.GetComponent<Animator>();
@@ -151,10 +159,18 @@ public class DialogueManager : MonoBehaviour
                     portraitAnimator.Play(tagValue);
                     break;
                 case POINTS_AVASOPHIA_TAG:
-                    Debug.Log("aspoints =" + tagValue);
+                    sophiaPoints += int.Parse(tagValue);
                     break;
                 case POINTS_AVAPETER_TAG:
-                    Debug.Log("appoints =" + tagValue);
+                    peterPoints += int.Parse(tagValue);
+                    break;
+                case PETER_LOSE:
+                    if(int.Parse(tagValue) == 0) { Debug.Log("Peter lose screen, stay with mom");  }
+                    else { Debug.Log("Peter lose screen, go with dad");  }
+                    break;
+                case SOPHIA_LOSE:
+                    if (int.Parse(tagValue) == 0) { Debug.Log("Sophia lose screen, stay with mom"); }
+                    else { Debug.Log("Sophia lose screen, go with dad"); }
                     break;
                 default:
                     Debug.LogWarning("Tag came in but ius not currently being handled: " + tag);
@@ -201,5 +217,15 @@ public class DialogueManager : MonoBehaviour
     public void MakeChoice(int choiceIndex)
     {
         currentStory.ChooseChoiceIndex(choiceIndex);
+    }
+
+    public int GetSophiaPoints()
+    {
+        return sophiaPoints;
+    }
+
+    public int GetPeterPoints()
+    {
+        return peterPoints;
     }
 }

@@ -26,10 +26,10 @@ What? And what about me? #speaker:Ava #portrait:ava #layout:left
 
 You can come with me if you want #speaker:Peter #portrait:peter #layout:right
     + [I'll pack right now]
-        Let's go! 
+        Let's go! #pLose:1
         -> DONE
     + [I won't leave mom alone. Bye!]
-       Bye bye Ava...
+       Bye bye Ava... #pLose:0
         -> DONE
         
 == goodTake ==
@@ -45,9 +45,9 @@ Oh! I just finish my last packet of cigarrets..
 You know kid? I don't think so... your mom gives me so anxiety
 I'm going to buy some cigarrets okay? Don't wait for me...
 
-buit everythoing is close now #speaker:Ava #portrait:ava #layout:left
+But everything is close now #speaker:Ava #portrait:ava #layout:left
 
-I don't care, I'm just leaving your mom and this house of madness #speaker:Peter #portrait:peter #layout:right
+I don't care, I'm just leaving your mom and this house of madness #speaker:Peter #portrait:peter #layout:right #pLose:0
 
 
 ->END
