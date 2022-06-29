@@ -10,9 +10,13 @@ This prototype will help me to gather some conclusions after the investigation d
 
 Learn more about the chosen approach toward the implementation of a decision-making system considering its base in Game Trees from Game Theory.
 
+![sc](https://github.com/Vinskky/TFG_GameTree/blob/main/Screenshots/Captura1.PNG?raw=true)
+
 ## Narrative Introduction
 
 We control Ava, a young woman that lives with his parents. After being sick for a week, she receives a message from his colleagues to go to a party and celebrate with them a Birthday. As a player we will need to interact with her parents and keep making decisions to arrive to one of the multiple endings this little story has.
+
+![sc1](https://github.com/Vinskky/TFG_GameTree/blob/main/Screenshots/Captura3.PNG?raw=true)
 
 ## Controls
 
