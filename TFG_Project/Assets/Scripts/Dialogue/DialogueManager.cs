@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 using Ink.Runtime;
 using UnityEngine.EventSystems;
@@ -39,6 +40,17 @@ public class DialogueManager : MonoBehaviour
     private int sophiaPoints;
     private int peterPoints;
 
+    //bools for final scene
+    [HideInInspector]
+    public bool sophia1 = false;
+    [HideInInspector]
+    public bool sophia2 = false;
+    [HideInInspector]
+    public bool peter1 = false;
+    [HideInInspector]
+    public bool peter2 = false;
+    [HideInInspector]
+    public bool goodEnding = false;
 
     private void Awake()
     {
@@ -48,6 +60,7 @@ public class DialogueManager : MonoBehaviour
         }
 
         instance = this;
+        DontDestroyOnLoad(this);
     }
 
     public static DialogueManager GetInstance()
@@ -165,12 +178,16 @@ public class DialogueManager : MonoBehaviour
                     peterPoints += int.Parse(tagValue);
                     break;
                 case PETER_LOSE:
-                    if(int.Parse(tagValue) == 0) { Debug.Log("Peter lose screen, stay with mom");  }
-                    else { Debug.Log("Peter lose screen, go with dad");  }
+                    if (int.Parse(tagValue) == 0) { peter1 = true; } //Peter lose screen, stay with mom
+                    else { peter2 = true; }                          //Peter lose screen, go with dad
+                    //Load ending scene
+                    SceneManager.LoadScene("EndScreen");
                     break;
                 case SOPHIA_LOSE:
-                    if (int.Parse(tagValue) == 0) { Debug.Log("Sophia lose screen, stay with mom"); }
-                    else { Debug.Log("Sophia lose screen, go with dad"); }
+                    if (int.Parse(tagValue) == 0) { sophia1 = true; }   // Sophia lose screen, stay with mom
+                    else { sophia2 = true; }                            //Sophia lose screen, go with dad
+                    //Load ending scene
+                    SceneManager.LoadScene("EndScreen");
                     break;
                 default:
                     Debug.LogWarning("Tag came in but ius not currently being handled: " + tag);

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DialogueTrigger : MonoBehaviour
 {
@@ -23,6 +24,7 @@ public class DialogueTrigger : MonoBehaviour
     private bool introSophiaDone;
     private bool introPeterDone;
 
+
     private void Awake()
     {
         playerInRange = false;
@@ -30,6 +32,7 @@ public class DialogueTrigger : MonoBehaviour
         scriptDialogue = dialogueManager.GetComponent<DialogueManager>();
         introSophiaDone = false;
         introPeterDone = false;
+
     }
 
     private void Update()
@@ -50,9 +53,10 @@ public class DialogueTrigger : MonoBehaviour
         //Win condition
         if(scriptDialogue.GetPeterPoints() > 70 && scriptDialogue.GetSophiaPoints() > 70)
         {
-            //Load win screen.
-            //Go to main menu
-
+            //win condition active
+            scriptDialogue.goodEnding = true;
+            //load end escene
+            SceneManager.LoadScene("EndScreen");
         }
     }
 
@@ -89,7 +93,7 @@ public class DialogueTrigger : MonoBehaviour
             introPeterDone = true;
             return introText;
         }
-        else if(gameObject.name == "NPC_2" && introPeterDone == true)
+        else if(gameObject.name == "NPC_2" && introPeterDone == true && introSophiaDone == false)
         {
             return defaultText;
         }
@@ -106,7 +110,7 @@ public class DialogueTrigger : MonoBehaviour
             introSophiaDone = true;
             return introText;
         }
-        else if (gameObject.name == "NPC_1" && introSophiaDone == true)
+        else if (gameObject.name == "NPC_1" && introSophiaDone == true && introPeterDone == false)
         {
             return defaultText;
         }
