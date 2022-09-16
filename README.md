@@ -6,6 +6,8 @@ In this prototype, we will test if we can manage to make a game using a differen
 
 This prototype will help me to gather some conclusions after the investigation done inside the thesis "From Game Trees to a Narrative Game Prototype"
 
+For more information about this project ![here](https://drive.google.com/file/d/18YozBW7bdUN-e-z51p3ItP1MMWo0L0nX/view?usp=sharing) you can check all the project documentation.
+
 ## Goals
 
 Learn more about the chosen approach toward the implementation of a decision-making system considering its base in Game Trees from Game Theory.
